@@ -3,6 +3,8 @@ from django.contrib import messages
 from .models import Order
 from .forms import OrderForm
 from django.contrib.auth.decorators import login_required
+from rest_framework import viewsets
+from .serializers import OrderSerializer
 
 @login_required(login_url='/login/')
 def order_list(request):
@@ -48,3 +50,7 @@ def order_delete(request, pk):
         messages.success(request, 'Order deleted successfully!')
         return redirect('order_list')
     return render(request, 'order_confirm_delete.html', {'order': order})
+
+class OrderViewSet(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer

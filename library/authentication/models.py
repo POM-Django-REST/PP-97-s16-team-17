@@ -1,5 +1,3 @@
-import datetime
-
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
@@ -7,15 +5,9 @@ from django.contrib.auth import get_user_model
 
 
 class CustomUserManager(BaseUserManager):
-    """
-    Custom user model manager where email is the unique identifiers
-    for authentication instead of usernames.
-    """
 
     def create_user(self, email, password, **extra_fields):
-        """
-        Create and save a User with the given email and password.
-        """
+
         if not email:
             raise ValueError(('The Email must be set'))
         email = self.normalize_email(email)
@@ -73,7 +65,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     class Meta:
         managed = True
 
-
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
@@ -91,12 +82,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     @staticmethod
     def get_by_email(email):
-        """
-        Returns user by email
-        :param email: email by which we need to find the user
-        :type email: str
-        :return: user object or None if a user with such ID does not exist
-        """
+
         custom_user = CustomUser.objects.filter(email=email).first()
         return custom_user if custom_user else None
 
