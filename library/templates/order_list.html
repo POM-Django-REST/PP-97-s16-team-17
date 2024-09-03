@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<div class="container">
+    <h1 class="highlighted-text">Order List</h1>
+    <a style="margin-bottom: 20px;" href="{% url 'order_create' %}" class="button button-secondary">Add New Order</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Book</th>
+                <th>User</th>
+                <th>Created At</th>
+                <th>End At</th>
+                <th>Plated End At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.book }}</td>
+                <td>{{ order.user }}</td>
+                <td>{{ order.created_at }}</td>
+                <td>{{ order.end_at }}</td>
+                <td>{{ order.plated_end_at }}</td>
+                <td>
+                    <a style="margin-bottom: 5px;" href="{% url 'order_update' order.id %}" class="button button-secondary">Edit</a>
+                    <a href="{% url 'order_delete' order.id %}" class="button button-secondary">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">No orders found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a style="margin-bottom: 5px;" href="{% url 'home' %}" class="button button-secondary">Back to Home</a>
+</div>
+{% endblock %}

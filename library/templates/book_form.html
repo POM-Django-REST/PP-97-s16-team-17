@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ form.instance.id|yesno:"Edit Book,Add Book" }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-buttons">
+            <button style="margin-bottom: 5px;" type="submit" class="button button-secondary">{{ form.instance.id|yesno:"Update,Add" }}</button>
+            <a href="{% url 'book_list' %}" class="button button-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1>Authors</h1>
+    <a href="{% url 'author_create' %}" class="button button-secondary">Create New Author</a>
+    <ul>
+        {% for author in authors %}
+            <li>
+                <a href="{% url 'author_detail' author.id %}">{{ author.name }} {{ author.surname }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}" class="button button-secondary">Back to Home</a>
+</div>
+{% endblock %}

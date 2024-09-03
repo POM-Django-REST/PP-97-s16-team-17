@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<div class="container">
+    <h2 class="highlighted-text">Are you sure you want to delete {{ author.name }} {{ author.surname }}?</h2>
+    <form method="post" class="button-group">
+        {% csrf_token %}
+        <button type="submit" class="button button-primary">Yes, delete</button>
+        <a href="{% url 'author_detail' author.id %}" class="button button-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

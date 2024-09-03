@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="best-selling" class="bestsellers">
+  <div class="bestsellers-container container">
+    <div class="bestsellers__header">
+      <h2 class="bestsellers__header-text">Welcome to our library, {{ first_name }}</h2>
+      <p class="bestsellers__text">Your role is {{ role }}, you can
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Log out</a>
+        {% endif %}
+      </p>
+      {% if role == 'librarian' %}
+      <a href="{% url 'users' %}" class="button button-secondary">Users list</a>
+      {% endif %}
+    </div>
+    <div class="bestsellers__item-grid">
+      <div class="bestsellers__item">
+        <a href="{% url 'book_list' %}">
+          <div class="bestsellers__photo-container">
+            <img
+              src="{% static 'images/books.jpg' %}"
+              alt="Books"
+              class="bestsellers__photo"
+            />
+          </div>
+        </a>
+        <a href="{% url 'book_list' %}">
+          <figcaption class="bestsellers__photo-caption">
+            Book catalogue
+          </figcaption>
+        </a>
+        <p class="bestsellers__price">120 000 titles</p>
+        <a href="{% url 'book_list' %}" class="button button-secondary">Look up</a>
+      </div>
+      {% if role == 'librarian' %}
+      <div class="bestsellers__item">
+        <a href="{% url 'author_list' %}">
+          <div class="bestsellers__photo-container">
+            <img
+              src="{% static 'images/authors.jpg' %}"
+              alt="Authors"
+              class="bestsellers__photo"
+            />
+          </div>
+        </a>
+        <a href="{% url 'author_list' %}">
+          <figcaption class="bestsellers__photo-caption">
+            Authors list
+          </figcaption>
+        </a>
+        <p class="bestsellers__price">2 000 names</p>
+        <a href="{% url 'author_list' %}" class="button button-secondary">Discover</a>
+      </div>
+      {% endif %}
+      <div class="bestsellers__item">
+        <a href="{% url 'order_list' %}">
+          <div class="bestsellers__photo-container">
+            <img
+              src="{% static 'images/user.jpg' %}"
+              alt="Orders"
+              class="bestsellers__photo"
+            />
+          </div>
+        </a>
+        <a href="{% url 'order_list' %}">
+          <figcaption class="bestsellers__photo-caption">
+            Orders
+          </figcaption>
+        </a>
+        <p class="bestsellers__price">3 000 orders</p>
+        <a href="{% url 'order_list' %}" class="button button-secondary">Check</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,1 @@
+default_app_config = 'library.auth_config.AuthConfig'

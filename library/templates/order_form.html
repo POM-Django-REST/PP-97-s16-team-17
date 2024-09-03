@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<div class="container">
+    <h1 style="margin-bottom: 5px;">{% if form.instance.pk %}Edit Order{% else %}Add Order{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button button-primary">{% if form.instance.pk %}Save{% else %}Create{% endif %}</button>
+        <a href="{% url 'order_list' %}" class="button button-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

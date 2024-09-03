@@ -1,0 +1,246 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-main-color: #333333;
+  --text-light-color: #757171;
+  --text-tertiary-сolor: #fff;
+  --accent-color: #7bb57c;
+  --background-color: #f7f5f6;
+  --background-color-second: #fff;
+  --section-color: #fff;
+  --text-block-color: grey;
+  --input-light-color: #c5cbd6;
+  --our-blog-color: #707070;
+  --out-of-stock-background: #FFDDD9;
+  --out-of-stock-text: #CC3833;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a, li {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 38px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+
+.highlighted-text {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.fixed {
+  width: 100%;
+  position: fixed;
+}
+
+.dashed-arrow {
+  width: 24px;
+  display: inline;
+  margin-left: 7px;
+}
+
+.button {
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  font-size: 10.8px;
+  font-weight: 700;
+  justify-content: center;
+  height: 43px;
+  width: 111px;
+  text-decoration: none;
+  transition: all 200ms ease-in;
+}
+
+.button-secondary{
+  background: var(--accent-color);
+  color: var(--text-tertiary-сolor);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button-secondary:hover {
+  background: var(--text-main-color);
+}
+
+.bestsellers {
+  background-color: var(--background-color-second);
+  padding: 90px 0;
+}
+
+.bestsellers__header {
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  text-align: center;
+  color: var(--text-main-color);
+}
+
+.bestsellers__header-text {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 36px;
+}
+
+@media (min-width: 768px) {
+  .bestsellers__header-text {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 992px) {
+  .bestsellers__header-text {
+    font-size: 38px;
+  }
+}
+
+.bestsellers__text {
+  margin-top: 25px;
+  font-size: 18px;
+}
+
+.bestsellers__item-grid {
+  display: grid;
+}
+
+@media (min-width: 768px) {
+  .bestsellers__item-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .bestsellers__item-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.bestsellers__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 50px 0 0;
+}
+
+@media (min-width: 768px) {
+  .bestsellers__item {
+    padding: 50px 15px 0;
+  }
+}
+
+.bestsellers__photo-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.bestsellers__photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.bestsellers__photo-caption {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-main-color);
+  letter-spacing: 0.9px;
+  line-height: 23.94px;
+}
+
+@media (min-width: 768px) {
+  .bestsellers__photo-caption {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 992px) {
+  .bestsellers__photo-caption {
+    margin-top: 24px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 26.6px;
+  }
+}
+
+.bestsellers__price {
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-left: 8px;
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .bestsellers__price {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 992px) {
+  .bestsellers__price {
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 26.6px;
+  }
+}
+
+.bestsellers .button-secondary {
+  width: 110px;
+  height: 42px;
+  margin-top: 5px;
+  font-weight: 700;
+  font-size: 10.8px;
+  text-transform: uppercase;
+}
+.login-registering{
+    display:flex;
+    flex-direction: column;
+}

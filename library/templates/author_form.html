@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1>{% if form.instance.pk %}Edit{% else %}Create{% endif %} Author</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button style="margin-bottom: 5px;" type="submit" class="button button-primary">{% if form.instance.pk %}Save{% else %}Create{% endif %}</button>
+    </form>
+    <div class="button-group">
+        <a style="margin-bottom: 5px;" href="{% url 'author_list' %}" class="button button-secondary">Back to Authors List</a>
+        <a style="margin-bottom: 5px;" href="{% url 'home' %}" class="button button-secondary">Back to Home</a>
+    </div>
+</div>
+{% endblock %}

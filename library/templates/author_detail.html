@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1>Author: {{ author.name }} {{ author.surname }}</h1>
+    <p>Patronymic: {{ author.patronymic }}</p>
+    <p>Books:</p>
+    <ul>
+        {% for book in author.books.all %}
+            <li>{{ book.title }}</li>
+        {% endfor %}
+    </ul>
+    <div class="button-group">
+        <a style="margin-bottom: 5px;" href="{% url 'author_update' author.id %}" class="button button-secondary">Edit</a>
+
+        <a style="margin-bottom: 5px;" href="{% url 'author_delete' author.id %}" class="button button-secondary">Delete</a>
+    </div>
+    <br>
+    <a style="margin-bottom: 5px;" href="{% url 'author_list' %}" class="button button-secondary">Back to Authors List</a>
+
+    <a style="margin-bottom: 5px;" href="{% url 'home' %}" class="button button-secondary">Back to Home</a>
+</div>
+{% endblock %}

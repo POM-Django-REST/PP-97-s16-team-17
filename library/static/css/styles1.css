@@ -1,0 +1,68 @@
+/* styles.css */
+
+/* Container styling */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.highlighted-text {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Button styling */
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.button-primary {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.button-primary:hover {
+    background-color: #c82333;
+}
+
+.button-secondary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.button-secondary:hover {
+    background-color: #0056b3;
+}
+
+/* Links styling */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
