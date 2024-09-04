@@ -3,6 +3,8 @@ from django.contrib import messages
 from .models import Book
 from .forms import BookForm
 from django.contrib.auth.decorators import login_required
+from rest_framework import viewsets
+from .serializers import BookSerializer
 
 @login_required(login_url='/login/')
 def book_list(request):
@@ -48,3 +50,8 @@ def book_delete(request, pk):
         messages.success(request, 'Book deleted successfully!')
         return redirect('book_list')
     return render(request, 'book_confirm_delete.html', {'book': book})
+
+
+class BookViewSet(viewsets.ModelViewSet):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer

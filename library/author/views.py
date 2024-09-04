@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Author
 from .forms import AuthorForm
+from rest_framework import viewsets
+from .serializers import AuthorSerializer
 
 def author_list(request):
     authors = Author.get_all()
@@ -37,3 +39,8 @@ def author_delete(request, author_id):
         author.delete()
         return redirect('author_list')
     return render(request, 'author_confirm_delete.html', {'author': author})
+
+
+class AuthorViewSet(viewsets.ModelViewSet):
+    queryset = Author.objects.all()
+    serializer_class = AuthorSerializer
